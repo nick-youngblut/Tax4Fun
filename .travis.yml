@@ -9,4 +9,4 @@ bioc_packages:
 
 r_github_packages:
   - joey711/biom
-  - nick-youngblut/tax4fun
+  - nick-youngblut/Tax4Fun
