@@ -42,8 +42,8 @@ importSilvaNgsData <- function(inputFiles){
 #' @return A list containing the imported and modified QIIME OTU table and sample names which can be used as input for the \code{\link{Tax4Fun}} prediction.
 
 importSilvaNgsDataFile <- function(file){
-  sampleNames <- unlist(strsplit(readLines(file,n=1),split="\t"))
-  otuTable <- read.csv(file, header=FALSE, sep="\t",quote="",dec=".", skip=1,row.names=length(sampleNames)+1)
-  inputData <- list(sampleNames=sampleNames, otuTable=otuTable)
-  return(inputData)
+  sampleNames <- unlist(strsplit(readLines(file,n=1), split="\t"))
+  otuTable <- read.csv(file, header=FALSE, sep="\t", quote="", dec=".", skip=1)
+  rownames(otuTable) <- 1:nrow(otuTable)
+  list(sampleNames=sampleNames, otuTable=otuTable)
 }
